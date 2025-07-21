@@ -6,7 +6,7 @@
   input {
     flex: 1;
     padding: 0.6rem 0.75rem;
-    border-radius: 8px;
+    border-radius:0.5rem;
     border: 1px solid #ccc;
     font-size: 1rem;
   }
@@ -14,7 +14,7 @@
   button {
     padding: 0.6rem 1rem;
     border: none;
-    border-radius: rem(8px, 16px);
+    border-radius: rem(0.5rem, 1rem);
     background-color: #9e1237;
     color: #fff;
     cursor: pointer;

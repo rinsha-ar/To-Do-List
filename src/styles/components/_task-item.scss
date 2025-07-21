@@ -11,8 +11,8 @@ ul.task-list {
     justify-content: space-between;
     align-items: flex-start;
     padding: 1rem;
-    border-left: 4px solid #ccc;
-    border-radius: 8px;
+    border-left: 0.3rem solid #ccc;
+    border-radius: 0.5rem;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 
     &.in-progress {
@@ -22,7 +22,7 @@ ul.task-list {
       .task-title {
         color: #e67e22;
         font-weight: 600;
-        width: 350px;
+        width: 22rem;
       }
 
       .task-status {
@@ -50,7 +50,7 @@ ul.task-list {
         color: #333;
         margin-bottom: 0.25rem;
         display: block;
-        width: 350px;
+        width: 22rem;
       }
 
       .task-status {
@@ -62,7 +62,7 @@ ul.task-list {
         font-size: 1rem;
         padding: 0.4rem 0.6rem;
         border: 1px solid #bbb;
-        border-radius: 6px;
+        border-radius: 0.4rem;
         width: 25rem; 
 
         background-color: #fff;
@@ -81,7 +81,7 @@ ul.task-list {
         cursor: pointer;
         color: #555;
         padding: 0.25rem;
-        border-radius: 4px;
+        border-radius: 0.3rem;
         transition: transform 0.2s ease, background-color 0.2s ease;
 
         &:hover {
