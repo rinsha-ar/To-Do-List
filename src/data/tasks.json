@@ -1,12 +1,12 @@
 [
-  { "id": 1, "title": "Buy groceries" },
-  { "id": 2, "title": "Finish React project" },
-  { "id": 3, "title": "Call mom"},
-  { "id": 4, "title": "Read a book"},
-  { "id": 5, "title": "Clean the room" },
-  { "id": 6, "title": "Water the plants" },
-  { "id": 7, "title": "Reply to emails" },
-  { "id": 8, "title": "Workout" },
-  { "id": 9, "title": "Plan weekend trip"},
-  { "id": 10, "title": "Update resume" }
+  { "id": 1, "title": "Task 1" },
+  { "id": 2, "title": "Task 2" },
+  { "id": 3, "title": "Task 3"},
+  { "id": 4, "title": "Task 4"},
+  { "id": 5, "title": "Task 5" },
+  { "id": 6, "title": "Task 6" },
+  { "id": 7, "title": "Task 7" },
+  { "id": 8, "title": "Task 8" },
+  { "id": 9, "title": "Task 9"},
+  { "id": 10, "title": "Task 10" }
 ]
