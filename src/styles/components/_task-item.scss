@@ -1,0 +1,117 @@
+ul.task-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li.task-item {
+    @include card-style;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-left: 4px solid #ccc;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+    &.in-progress {
+      border-left-color: #f39c12;
+      background-color: #fff6e5;
+
+      .task-title {
+        color: #e67e22;
+        font-weight: 600;
+        width: 350px;
+      }
+
+      .task-status {
+        color: #d35400;
+        font-weight: 500;
+      }
+    }
+
+    &.completed {
+      border-left-color: #81c784;
+      background-color: #f3fff3;
+    }
+
+    &.deleted {
+      border-left-color: #d32f2f;
+      background-color: #fff1f0;
+      opacity: 0.85;
+    }
+
+    .task-content {
+      flex: 1;
+
+      .task-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.25rem;
+        display: block;
+        width: 350px;
+      }
+
+      .task-status {
+        font-size: 0.875rem;
+        color: #666;
+      }
+
+      .edit-input {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        width: 25rem; 
+
+        background-color: #fff;
+        color: #333;
+      }
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 0.5rem;
+
+      .task-action-btn {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #555;
+        padding: 0.25rem;
+        border-radius: 4px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+          transform: scale(1.2);
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &.delete-icon {
+          color: #d32f2f;
+
+          &:hover {
+            background-color: rgba(211, 47, 47, 0.1);
+          }
+        }
+      }
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+
+      .task-actions {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 0.75rem;
+      }
+
+      .edit-input {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

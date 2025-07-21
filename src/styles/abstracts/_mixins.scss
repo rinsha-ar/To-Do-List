@@ -1,0 +1,18 @@
+// styles/_mixins.scss
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin card-style {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f5;
+  }
+}

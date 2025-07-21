@@ -1,0 +1,67 @@
+.task-summary-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+
+  .chart-left {
+    flex: 0 0 auto;
+
+    .chart-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-center-label {
+      position: absolute;
+      text-align: center;
+      line-height: 1.2;
+      pointer-events: none;
+      transform: translateY(-2px);
+
+      span {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #222;
+      }
+
+      small {
+        font-size: 0.75rem;
+        color: #666;
+        margin-top: 0.2rem;
+        letter-spacing: 0.5px;
+        display: block;
+      }
+    }
+  }
+
+  .chart-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #333;
+
+      .color-box {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+
+        &.blue { background-color: #3498db; }
+        &.orange { background-color: #f39c12; }
+        &.green { background-color: #2ecc71; }
+      }
+    }
+  }
+}

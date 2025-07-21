@@ -1,0 +1,12 @@
+[
+  { "id": 1, "title": "Buy groceries" },
+  { "id": 2, "title": "Finish React project" },
+  { "id": 3, "title": "Call mom"},
+  { "id": 4, "title": "Read a book"},
+  { "id": 5, "title": "Clean the room" },
+  { "id": 6, "title": "Water the plants" },
+  { "id": 7, "title": "Reply to emails" },
+  { "id": 8, "title": "Workout" },
+  { "id": 9, "title": "Plan weekend trip"},
+  { "id": 10, "title": "Update resume" }
+]
