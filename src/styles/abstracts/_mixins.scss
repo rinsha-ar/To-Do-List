@@ -1,4 +1,4 @@
-// styles/_mixins.scss
+
 @mixin mobile {
   @media (max-width: 30rem) {
     @content;
