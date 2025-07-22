@@ -76,10 +76,11 @@ const TaskList = () => {
       />
 
       <TaskInput
-        value={newTaskText}
-        onChange={(e) => setNewTaskText(e.target.value)}
-        onAdd={handleAddTask}
+        taskText={newTaskText}
+        onTextChange={(e) => setNewTaskText(e.target.value)}
+        onAddTask={handleAddTask}
       />
+
 
       <ul className="task-list__items">
         {tasks.map(task => (
@@ -91,10 +92,11 @@ const TaskList = () => {
             onEditStart={() => startEditing(task.id, task.title)}
             onEditChange={(e) => setEditedTaskText(e.target.value)}
             onEditSave={() => saveEditedTask(task.id)}
-            onInProgress={() => markInProgress(task.id)}
-            onCompleted={() => markCompleted(task.id)}
-            onDelete={() => deleteTask(task.id)}
+            onMarkInProgress={() => markInProgress(task.id)}
+            onMarkCompleted={() => markCompleted(task.id)}
+            onDeleteTask={() => deleteTask(task.id)}
           />
+
         ))}
       </ul>
     </div>
