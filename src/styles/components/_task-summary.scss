@@ -11,8 +11,8 @@
 
   &__chart-wrapper {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 8rem;
+    height: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
       font-size: 0.95rem;
       color: #666;
       margin-top: 0.2rem;
-      letter-spacing: 0.5px;
+      letter-spacing: rem(0.5, 16);
       display: block;
     }
   }
