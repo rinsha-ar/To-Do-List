@@ -1,11 +1,11 @@
-ul.task-list {
+.task-list__items {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 
-  li.task-item {
+  .task-item {
     @include card-style;
     display: flex;
     justify-content: space-between;
@@ -15,37 +15,37 @@ ul.task-list {
     border-radius: 0.5rem;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 
-    &.in-progress {
+    &--in-progress {
       border-left-color: #f39c12;
       background-color: #fff6e5;
 
-      .task-title {
+      .task-item__title {
         color: #e67e22;
         font-weight: 600;
         width: 22rem;
       }
 
-      .task-status {
+      .task-item__status {
         color: #d35400;
         font-weight: 500;
       }
     }
 
-    &.completed {
+    &--completed {
       border-left-color: #81c784;
       background-color: #f3fff3;
     }
 
-    &.deleted {
+    &--deleted {
       border-left-color: #d32f2f;
       background-color: #fff1f0;
       opacity: 0.85;
     }
 
-    .task-content {
+    &__content {
       flex: 1;
 
-      .task-title {
+      .task-item__title {
         font-weight: 600;
         color: #333;
         margin-bottom: 0.25rem;
@@ -53,28 +53,28 @@ ul.task-list {
         width: 22rem;
       }
 
-      .task-status {
+      .task-item__status {
         font-size: 0.875rem;
         color: #666;
       }
 
-      .edit-input {
+      .task-item__edit-input {
         font-size: 1rem;
         padding: 0.4rem 0.6rem;
         border: 1px solid #bbb;
         border-radius: 0.4rem;
-        width: 25rem; 
+        width: 25rem;
 
         background-color: #fff;
         color: #333;
       }
     }
 
-    .task-actions {
+    &__actions {
       display: flex;
       gap: 0.5rem;
 
-      .task-action-btn {
+      .task-item__button {
         background: none;
         border: none;
         font-size: 1.2rem;
@@ -89,7 +89,7 @@ ul.task-list {
           background-color: rgba(0, 0, 0, 0.05);
         }
 
-        &.delete-icon {
+        &--delete {
           color: #d32f2f;
 
           &:hover {
@@ -103,13 +103,13 @@ ul.task-list {
       flex-direction: column;
       align-items: stretch;
 
-      .task-actions {
+      &__actions {
         justify-content: space-around;
         flex-wrap: wrap;
         margin-top: 0.75rem;
       }
 
-      .edit-input {
+      .task-item__edit-input {
         margin-top: 0.5rem;
       }
     }

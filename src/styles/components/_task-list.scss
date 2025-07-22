@@ -1,4 +1,4 @@
-.task-list-container {
+.task-list {
   max-width: 38rem;
   margin: 3rem auto;
   padding: 1.5rem;
@@ -6,7 +6,7 @@
   border-radius: 0.625rem;
   box-shadow: 0 4px 1rem rgba(0, 0, 0, 0.08);
 
-  h2 {
+  &__title {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
     text-align: center;

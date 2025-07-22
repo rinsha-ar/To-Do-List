@@ -6,24 +6,24 @@ import TaskItem from './TaskItem';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState(tasksData);
-  const [newTask, setNewTask] = useState('');
+  const [newTaskText, setNewTaskText] = useState('');
   const [editingTaskId, setEditingTaskId] = useState(null);
-  const [editedText, setEditedText] = useState('');
+  const [editedTaskText, setEditedTaskText] = useState('');
 
   // Add new task
   const handleAddTask = () => {
-    if (newTask.trim() === '') return;
-    const newEntry = {
+    if (newTaskText.trim() === '') return;
+    const newTask = {
       id: Date.now(),
-      title: newTask.trim(),
+      title: newTaskText.trim(),
       status: 'pending',
     };
-    setTasks([newEntry, ...tasks]);
-    setNewTask('');
+    setTasks([newTask, ...tasks]);
+    setNewTaskText('');
   };
 
-  // Update status
-  const handleInProgress = (id) => {
+  // Status updates
+  const markInProgress = (id) => {
     setTasks(prev =>
       prev.map(task =>
         task.id === id ? { ...task, status: 'in-progress' } : task
@@ -31,7 +31,7 @@ const TaskList = () => {
     );
   };
 
-  const handleMarkCompleted = (id) => {
+  const markCompleted = (id) => {
     setTasks(prev =>
       prev.map(task =>
         task.id === id ? { ...task, status: 'completed' } : task
@@ -39,26 +39,26 @@ const TaskList = () => {
     );
   };
 
-  const handleDelete = (id) => {
-    const updatedTasks = tasks.filter(task => task.id !== id);
-    setTasks(updatedTasks);
+  const deleteTask = (id) => {
+    setTasks(prev => prev.filter(task => task.id !== id));
   };
 
-  const handleEditStart = (id, currentTitle) => {
+  const startEditing = (id, currentTitle) => {
     setEditingTaskId(id);
-    setEditedText(currentTitle);
+    setEditedTaskText(currentTitle);
   };
 
-  const handleSaveEdit = (id) => {
+  const saveEditedTask = (id) => {
     setTasks(prev =>
       prev.map(task =>
-        task.id === id ? { ...task, title: editedText } : task
+        task.id === id ? { ...task, title: editedTaskText } : task
       )
     );
     setEditingTaskId(null);
-    setEditedText('');
+    setEditedTaskText('');
   };
 
+  // Category counts
   const upcomingCount = tasks.filter(
     t => t.status !== 'in-progress' && t.status !== 'completed'
   ).length;
@@ -66,34 +66,34 @@ const TaskList = () => {
   const completedCount = tasks.filter(t => t.status === 'completed').length;
 
   return (
-    <div className="task-list-container">
-      <h2 className="task-list-title">My Tasks</h2>
+    <div className="task-list">
+      <h2 className="task-list__title">My Tasks</h2>
 
       <TaskSummary
-        upcoming={upcomingCount}
-        inProgress={inProgressCount}
-        completed={completedCount}
+        upcomingCount={upcomingCount}
+        inProgressCount={inProgressCount}
+        completedCount={completedCount}
       />
 
       <TaskInput
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={newTaskText}
+        onChange={(e) => setNewTaskText(e.target.value)}
         onAdd={handleAddTask}
       />
 
-      <ul className="task-list">
+      <ul className="task-list__items">
         {tasks.map(task => (
           <TaskItem
             key={task.id}
             task={task}
             isEditing={editingTaskId === task.id}
-            editedText={editedText}
-            onEditStart={() => handleEditStart(task.id, task.title)}
-            onEditChange={(e) => setEditedText(e.target.value)}
-            onEditSave={() => handleSaveEdit(task.id)}
-            onInProgress={() => handleInProgress(task.id)}
-            onCompleted={() => handleMarkCompleted(task.id)}
-            onDelete={() => handleDelete(task.id)}
+            editedText={editedTaskText}
+            onEditStart={() => startEditing(task.id, task.title)}
+            onEditChange={(e) => setEditedTaskText(e.target.value)}
+            onEditSave={() => saveEditedTask(task.id)}
+            onInProgress={() => markInProgress(task.id)}
+            onCompleted={() => markCompleted(task.id)}
+            onDelete={() => deleteTask(task.id)}
           />
         ))}
       </ul>
@@ -102,5 +102,3 @@ const TaskList = () => {
 };
 
 export default TaskList;
-  
-

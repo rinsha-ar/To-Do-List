@@ -1,3 +1,5 @@
+import React from 'react';
+
 const TaskItem = ({
   task,
   isEditing,
@@ -5,16 +7,16 @@ const TaskItem = ({
   onEditStart,
   onEditChange,
   onEditSave,
-  onInProgress,
-  onCompleted,
-  onDelete,
+  onMarkInProgress,
+  onMarkCompleted,
+  onDeleteTask,
 }) => (
-  <li className={`task-item ${task.status}`}>
-    <div className="task-content">
+  <li className={`task-item task-item--${task.status}`}>
+    <div className="task-item__content">
       {isEditing ? (
         <input
           type="text"
-          className="edit-input"
+          className="task-item__edit-input"
           value={editedText}
           onChange={onEditChange}
           onBlur={onEditSave}
@@ -22,22 +24,47 @@ const TaskItem = ({
             if (e.key === 'Enter') onEditSave();
           }}
           autoFocus
+          aria-label="Edit task title"
         />
       ) : (
         <>
-          <span className="task-title">{task.title}</span>
-          <strong className="task-status">{task.status}</strong>
+          <span className="task-item__title">{task.title}</span>
+          <strong className="task-item__status">{task.status}</strong>
         </>
       )}
     </div>
 
-    <div className="task-actions">
+    <div className="task-item__actions">
       {task.status === 'in-progress' && (
-        <button className="task-action-btn" onClick={onCompleted}>✔</button>
+        <button
+          className="task-item__button"
+          onClick={onMarkCompleted}
+          aria-label="Mark as completed"
+        >
+          ✔
+        </button>
       )}
-      <button className="task-action-btn" onClick={onInProgress}>▶</button>
-      <button className="task-action-btn delete-icon" onClick={onDelete}>✖</button>
-      <button className="task-action-btn" onClick={onEditStart}>✎</button>
+      <button
+        className="task-item__button"
+        onClick={onMarkInProgress}
+        aria-label="Mark as in-progress"
+      >
+        ▶
+      </button>
+      <button
+        className="task-item__button task-item__button--delete"
+        onClick={onDeleteTask}
+        aria-label="Delete task"
+      >
+        ✖
+      </button>
+      <button
+        className="task-item__button"
+        onClick={onEditStart}
+        aria-label="Edit task"
+      >
+        ✎
+      </button>
     </div>
   </li>
 );

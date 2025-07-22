@@ -1,12 +1,23 @@
-const TaskInput = ({ value, onChange, onAdd }) => (
+import React from 'react';
+
+const TaskInput = ({ taskText, onTextChange, onAddTask }) => (
   <div className="task-input">
     <input
       type="text"
-      value={value}
+      className="task-input__field"
+      value={taskText}
       placeholder="Enter new task"
-      onChange={onChange}
+      onChange={onTextChange}
+      autoFocus
+      aria-label="Task input"
     />
-    <button onClick={onAdd}>Add</button>
+    <button
+      className="task-input__button"
+      onClick={onAddTask}
+      aria-label="Add task"
+    >
+      Add
+    </button>
   </div>
 );
 
