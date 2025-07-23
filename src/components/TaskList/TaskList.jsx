@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import tasksData from '../data/tasks.json';
-import TaskSummary from './TaskSummary';
-import TaskInput from './TaskInput';
-import TaskItem from './TaskItem';
+import tasksData from '../../data/tasks.json';
+import TaskSummary from '../TaskSummary/TaskSummary';
+import TaskInput from '../TaskInput/TaskInput';
+import TaskItem from '../TaskItem/TaskItem';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState(tasksData);

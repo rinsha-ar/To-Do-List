@@ -1,8 +1,14 @@
-@import 'abstracts/mixins';
-@import 'components/task-summary';
-@import 'components/task-input';
-@import 'components/task-list';
-@import 'components/task-item';
-@import 'abstracts/functions';
+// src/styles/main.scss
 
+// Abstracts (functions and mixins)
+@use './abstracts/functions' as functions;
+@use './abstracts/mixins' as mixins;
+
+// Component styles
+// src/styles/main.scss
+
+@use '../components/TaskInput/TaskInput';
+@use '../components/TaskItem/TaskItem';
+@use '../components/TaskList/TaskList';
+@use '../components/TaskSummary/TaskSummary';
 
